@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Book Movie Tickets</h1>
+            <label for="movie">Select Movie</label>
+            <select id="movie">
+                <option value="Movie A">Movie A</option>
+                <option value="Movie B">Movie B</option>
+                <option value="Movie C">Movie C</option>
+            </select>
+
+            <label for="numSeats">Number of Seats</label>
+            <input type="number" id="numSeats" placeholder="Enter Number of Seats">
+
+            <p id="totalCostMovie">Total Cost: $0</p>
+
+            <button id="movieBookBtn">Book Now</button>
+        </div>
+    </div>
+
+    <script>
+        const moviePrice = 150;
+        const numSeatsInputMovie = document.getElementById("numSeats");
+        const totalCostElementMovie = document.getElementById("totalCostMovie");
+
+        numSeatsInputMovie.addEventListener("input", function() {
+            const numSeats = parseInt(numSeatsInputMovie.value) || 0;
+            const totalCost = numSeats * moviePrice;
+            totalCostElementMovie.textContent = `Total Cost: $${totalCost}`;
+        });
+
+        document.getElementById("movieBookBtn").addEventListener("click", function() {
+            const totalCost = numSeatsInputMovie.value * moviePrice;
+            window.location.href = `payment-gateway.html?type=movie&amount=${totalCost}`;
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Transaction History</h1>
+            <ul id="transactionHistory"></ul>
+            <a href="index.html" class="back-btn">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        const transactions = JSON.parse(localStorage.getItem("transactions")) || [];
+        const historyElement = document.getElementById("transactionHistory");
+        
+        transactions.forEach(transaction => {
+            const li = document.createElement("li");
+            li.textContent = transaction;
+            historyElement.appendChild(li);
+        });
+    </script>
+</body>
+</html>

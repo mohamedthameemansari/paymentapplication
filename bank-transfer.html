@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Transfer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Bank Transfer</h1>
+            <label for="bank">Bank Name</label>
+            <input type="text" id="bank" placeholder="Enter Bank Name">
+
+            <label for="ifsc">IFSC Code</label>
+            <input type="text" id="ifsc" placeholder="Enter IFSC Code">
+
+            <label for="account">Account Number</label>
+            <input type="text" id="account" placeholder="Enter Account Number">
+
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" placeholder="Enter Amount">
+
+            <button id="submitBtn">Submit Payment</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            const amount = document.getElementById("amount").value;
+            window.location.href = `processing.html?type=bank&amount=${amount}`;
+        });
+    </script>
+</body>
+</html>
+
